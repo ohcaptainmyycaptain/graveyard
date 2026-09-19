@@ -5,6 +5,6 @@ Started this server just to share silly emojis and ended up finding a bunch of c
 ## 💬 Join our Discord!
 
 hii ✨ this is my little corner of Discord — come chat, hop in vc, and help ua grow this community together 🌱💗
-https://github.com/ohcaptainmyycaptain/graveyard.git
 
-[![Discord](https://img.shields.io/discord/1345882876255797292?color=ff6fb0&label=Join%20us&logo=discord&logoColor=white&style=for-the-badge)](https://discord.gg/f8k2pQ)
+
+[![Discord](https://img.shields.io/discord/1345882876255797292?color=ff6fb0&label=Join%20us&logo=discord&logoColor=white&style=for-the-badge)]([https://discord.gg/f8k2pQ](https://discord.com/widget?id=1345882876255797292&theme=dark))
