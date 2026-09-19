@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Join the server</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700&display=swap');
+
+:root {
+  --bg: #fdf0f6;
+  --bg-blob-1: #ffd6ea;
+  --bg-blob-2: #d9f2e6;
+  --card: #ffffff;
+  --ink: #4a3552;
+  --ink-dim: #9686a3;
+  --pink: #ff6fb0;
+  --pink-deep: #e0498f;
+  --mint: #5fd6a4;
+  --line: #f3e1ec;
+  --shadow: 0 18px 40px -14px rgba(224, 73, 143, 0.28);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Nunito', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  padding: 40px 20px calc(40px + env(safe-area-inset-bottom, 0px));
+  padding-top: calc(40px + env(safe-area-inset-top, 0px));
+  position: relative;
+}
+
+/* soft decorative blobs, hidden from the flow */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(2px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+body::before {
+  width: 260px;
+  height: 260px;
+  background: var(--bg-blob-1);
+  top: -80px;
+  left: -80px;
+}
+
+body::after {
+  width: 220px;
+  height: 220px;
+  background: var(--bg-blob-2);
+  bottom: -70px;
+  right: -70px;
+}
+
+.scene {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 14px 6px 10px;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--pink-deep);
+  margin-bottom: 18px;
+  box-shadow: 0 6px 16px -8px rgba(224, 73, 143, 0.35);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 0 4px rgba(95, 214, 164, 0.25);
+  animation: bob 1.8s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot { animation: none; }
+  .card { animation: none !important; }
+}
+
+h1 {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 700;
+  font-size: clamp(30px, 7vw, 40px);
+  line-height: 1.15;
+  margin: 0 0 10px;
+  color: var(--pink-deep);
+}
+
+p.sub {
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--ink-dim);
+  margin: 0 0 26px;
+  max-width: 32ch;
+}
+
+.card {
+  width: 100%;
+  background: var(--card);
+  border-radius: 28px;
+  padding: 14px;
+  box-shadow: var(--shadow);
+  border: 2px solid var(--line);
+  animation: pop-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes pop-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.frame {
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  background: #f8f4fa;
+}
+
+iframe {
+  display: block;
+  width: 100%;
+  max-width: 350px;
+  height: 500px;
+  border: none;
+}
+
+.join-btn {
+  display: block;
+  width: 100%;
+  margin-top: 18px;
+  padding: 16px 20px;
+  background: var(--pink);
+  background-image: linear-gradient(180deg, var(--pink), var(--pink-deep));
+  color: #fff;
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 18px;
+  box-shadow: 0 14px 28px -10px rgba(224, 73, 143, 0.55), inset 0 -3px 0 rgba(0,0,0,0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.join-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 32px -10px rgba(224, 73, 143, 0.6), inset 0 -3px 0 rgba(0,0,0,0.12);
+}
+
+.join-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 16px -8px rgba(224, 73, 143, 0.5), inset 0 -3px 0 rgba(0,0,0,0.12);
+}
+
+.foot {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--ink-dim);
+}
+
+.foot a {
+  color: var(--pink-deep);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid var(--pink);
+}
+
+/* phones: full-bleed card, tighter spacing */
+@media (max-width: 420px) {
+  body { padding: 28px 14px calc(28px + env(safe-area-inset-bottom, 0px)); }
+  .card { padding: 10px; border-radius: 22px; }
+  .frame { border-radius: 14px; }
+  iframe { height: 460px; }
+}
+
+/* bigger screens: a little more breathing room and a wider card */
+@media (min-width: 900px) {
+  .scene { max-width: 440px; }
+  .card { padding: 18px; }
+}
+
+</style>
+</head>
+<body>
+
+  <div class="scene">
+    <span class="badge"><span class="dot"></span>Online now</span>
+
+    <h1>Come hang out! 🎀</h1>
+    <p class="sub">The server's live and the chats are always moving. Pop in and say hi.</p>
+
+    <div class="card">
+      <div class="frame">
+        <iframe src="https://discord.com/widget?id=1345882876255797292&theme=dark"
+          width="350" height="500"
+          allowtransparency="true"
+          frameborder="0"
+          sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+        </iframe>
+      </div>
+    </div>
+
+    <a class="join-btn" href="https://discord.com/widget?id=1345882876255797292&theme=dark" target="_blank" rel="noopener">Join the Discord 🎀</a>
+
+    <p class="foot">Widget acting up? <a href="https://discord.com/widget?id=1345882876255797292&theme=dark" target="_blank" rel="noopener">Open it directly</a>.</p>
+  </div>
+
+</body>
+</html>
